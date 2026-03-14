@@ -24,3 +24,9 @@ Update > models.py
 Create > blog/urls.py
 Update > proj/urls.py (project urls)
 python manage.py runserver
+
+Q5
+Create > blog/templates/blog/base.html
+Create > blog/templates/blog/post/list.html
+Create > blog/templates/blog/post/detail.html
+Update > blog/admin.py
