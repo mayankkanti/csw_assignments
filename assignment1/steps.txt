@@ -59,3 +59,10 @@ Create > templates/studentApp/student_list.html
 Create > studentApp/urls.py
 Update > college_project/urls.py
 
+Q10
+Create > templates/studentApp/student_detail.html
+Update > views.py
+Update > college_project/urls.py
+Update > studentApp/views.py
+python manage.py runserver
+

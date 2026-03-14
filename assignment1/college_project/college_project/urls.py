@@ -21,4 +21,5 @@ from studentApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('students/', views.student_list, name='student_list'),
+    path('students/<int:pk>/', views.student_detail, name='student_detail'),
 ]
