@@ -2,6 +2,7 @@ Q1
 django-admin startproject college_blog
 cd college_blog
 python manage.py startapp blog
+Update > models.py
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
@@ -9,6 +10,11 @@ python manage.py runserver
 
 
 Q2
+Update > models.py
+python manage.py makemigrations
+python manage.py migrate
+
+Q3
 Update > models.py
 python manage.py makemigrations
 python manage.py migrate
