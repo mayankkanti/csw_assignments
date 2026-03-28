@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <small>Published: {{ article.publish }}</small>
+
+    <p>
+        <a href="{% url 'article_share' article.id %}">Share this article</a>
+    </p>
+
+    <hr>
+    <h2>Comments</h2>
+    {% for comment in comments %}
+        <div>
+            <p><strong>{{ comment.name }}</strong> ({{ comment.created }})</p>
+            <p>{{ comment.body|linebreaks }}</p>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+
+    <h3>Add a comment</h3>
+    {% if new_comment %}
+        <p>Your comment has been submitted.</p>
+    {% endif %}
+
+    <form method="post">
+        {{ comment_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Add comment"></p>
+    </form>
+</body>
+</html>

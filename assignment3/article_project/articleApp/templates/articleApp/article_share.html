@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Share article</title>
+</head>
+<body>
+    <h1>Share "{{ article.title }}"</h1>
+
+    {% if sent %}
+        <p>Email sent successfully.</p>
+    {% else %}
+        <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="Send email"></p>
+        </form>
+    {% endif %}
+</body>
+</html>

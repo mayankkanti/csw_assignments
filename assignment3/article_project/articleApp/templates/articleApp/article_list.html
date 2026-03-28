@@ -8,9 +8,14 @@
 
     {% for article in page_obj %}
         <div>
-            <h2>{{ article.title }}</h2>
+            <h2>
+                <a href="{% url 'article_detail' article.publish.year article.publish.month article.publish.day article.slug %}">
+                    {{ article.title }}
+                </a>
+            </h2>
             <p>{{ article.content|truncatewords:30 }}</p>
             <small>Published: {{ article.publish }}</small>
+            <p><a href="{% url 'article_share' article.id %}">Share this article</a></p>
         </div>
         <hr>
     {% empty %}
