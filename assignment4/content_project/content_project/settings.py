@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'django.contrib.postgres',
+    'taggit',
+    'contentApp',
 ]
 
 MIDDLEWARE = [
@@ -79,8 +84,9 @@ DATABASES = {
     }
 }
 
+SITE_ID = 1
 
-# Password validation
+
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <h1>Search Articles</h1>
+    <form method="get">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+    {% if query %}
+    <h2>Results for "{{ query }}"</h2>
+    {% if articles %}
+    {% for article in articles %}
+    <article>
+        <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
+        <p>{{ article.body|truncatewords:30 }}</p>
+    </article>
+    {% endfor %}
+    <div class="pagination">
+        {% if paginator.has_previous %}
+            <a href="?q={{ query }}&page=1">First</a>
+            <a href="?q={{ query }}&page={{ paginator.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span>Page {{ paginator.number }} of {{ paginator.num_pages }}</span>
+        {% if paginator.has_next %}
+            <a href="?q={{ query }}&page={{ paginator.next_page_number }}">Next</a>
+            <a href="?q={{ query }}&page={{ paginator.num_pages }}">Last</a>
+        {% endif %}
+    </div>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+    {% endif %}
+</body>
+</html>

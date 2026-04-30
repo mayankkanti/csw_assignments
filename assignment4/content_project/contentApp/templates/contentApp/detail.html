@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.publish }}</p>
+    <p>By {{ article.author }}</p>
+    <p>{{ article.body }}</p>
+    <p>Tags: {% for tag in article.tags.all %}<a href="#">{{ tag }}</a> {% endfor %}</p>
+    {% if similar %}
+    <h3>Similar Articles</h3>
+    <ul>
+        {% for s in similar %}
+        <li><a href="{{ s.get_absolute_url }}">{{ s.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
