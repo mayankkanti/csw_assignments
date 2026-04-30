@@ -6,13 +6,15 @@
 <body>
   <h1>My Blog</h1>
   {% load blog_tags %}
-  <div style="display:flex; gap:24px;">
-    <div style="flex:3">{% block content %}{% endblock %}</div>
-    <aside style="flex:1">
+  <div style="display:flex; gap:12px;">
+    <div>
+      <h2>Sidebar</h2>
       <p>Total posts: {% total_posts %}</p>
       {% latest_posts 5 %}
       {% most_commented 5 %}
-    </aside>
+    </div>
+    <div>{% block content %}{% endblock %}</div>
+
   </div>
 </body>
 </html>

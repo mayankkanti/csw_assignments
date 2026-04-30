@@ -2,7 +2,7 @@
   <h4>Most commented</h4>
   <ul>
     {% for p in most_commented_posts %}
-      <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a> ({{ p.comment_set.count }})</li>
+      <li><a href="{{ p.get_absolute_url }}">{{ p.title }}</a> ({{ p.comment_count }})</li>
     {% endfor %}
   </ul>
 </div>

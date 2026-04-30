@@ -21,3 +21,15 @@ def latest_posts(count=5):
 def most_commented(count=5):
     posts = Post.published.annotate(comment_count=Count('comments')).order_by('-comment_count')[:count]
     return {'most_commented_posts': posts}
+
+
+@register.filter(name='markdown')
+def markdown_format(text):
+    if not text:
+        return ''
+    try:
+        import markdown as _markdown
+        from django.utils.safestring import mark_safe
+        return mark_safe(_markdown.markdown(text))
+    except Exception:
+        return text
