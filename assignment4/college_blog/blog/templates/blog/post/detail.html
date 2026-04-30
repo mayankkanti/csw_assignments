@@ -27,4 +27,12 @@
   {% endfor %}
 
   {% include "blog/post/includes/comment_form.html" %}
+  {% if similar_posts %}
+  <h3>Similar posts</h3>
+  <ul>
+    {% for spost in similar_posts %}
+      <li><a href="{{ spost.get_absolute_url }}">{{ spost.title }}</a> ({{ spost.same_tags }} shared)</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 {% endblock %}
