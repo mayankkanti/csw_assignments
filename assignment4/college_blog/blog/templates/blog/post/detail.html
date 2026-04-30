@@ -34,5 +34,7 @@
       <li><a href="{{ spost.get_absolute_url }}">{{ spost.title }}</a> ({{ spost.same_tags }} shared)</li>
     {% endfor %}
   </ul>
+  {% else %}
+  <p>No similar posts found.</p>
   {% endif %}
 {% endblock %}
